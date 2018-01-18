@@ -1,5 +1,5 @@
-﻿已經開始建置於 2018/1/11 上午 02:24:12。
-     1>節點 2 (Build 目標) 上的專案 "C:\Users\James\Dropbox\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj"。
+﻿已經開始建置於 2018/1/16 下午 07:24:54。
+     1>節點 2 (Build 目標) 上的專案 "C:\Users\James\Documents\GitHub\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj"。
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\opencv\build\include /IC:\opencv\build\include\opencv2 /IC:\opencv\build\include\opencv /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Source.cpp
          Source.cpp
@@ -15,10 +15,10 @@
      1>Source.cpp(209): warning C4101: 'col' : 未參考的區域變數
      1>Source.cpp(209): warning C4101: 'row' : 未參考的區域變數
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\James\Dropbox\Superpixel_James\x64\Debug\Superpixel_James.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\opencv\build\x64\vc12\lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\James\Dropbox\Superpixel_James\x64\Debug\Superpixel_James.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\James\Dropbox\Superpixel_James\x64\Debug\Superpixel_James.lib" /MACHINE:X64 x64\Debug\Source.obj
-         Superpixel_James.vcxproj -> C:\Users\James\Dropbox\Superpixel_James\x64\Debug\Superpixel_James.exe
-     1>專案 "C:\Users\James\Dropbox\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj" (Build 目標) 建置完成。
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\opencv\build\x64\vc12\lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.lib" /MACHINE:X64 x64\Debug\Source.obj
+         Superpixel_James.vcxproj -> C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.exe
+     1>專案 "C:\Users\James\Documents\GitHub\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj" (Build 目標) 建置完成。
 
 建置成功。
 
-經過時間 00:00:01.35
+經過時間 00:00:01.11

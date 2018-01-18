@@ -236,17 +236,17 @@ void firstseam(vector <vector<int>> &superpixels, Mat &energyx, Mat &energyy, ve
 
 	for (int x = 0; x < sprecty.size(); x++){
 
-		double center = gaussian(0, sprecty.at(x).width); // meaning?
+		double center = gaussian(0, sprecty.at(x).width); 
 		weightmap_y.resize(sprecty.at(x).width);
 		for (int i = -sprecty.at(x).width / 2; i < sprecty.at(x).width / 2; i++)
-			weightmap_y.at(sprecty.at(x).width / 2 + i) = gaussian(i, sprecty.at(x).width) / center;  // ����weight�v��++ ?
+			weightmap_y.at(sprecty.at(x).width / 2 + i) = gaussian(i, sprecty.at(x).width) / center;  
 
-		energyy(sprecty[x]).copyTo(roi); 
+		energyy(sprecty[x]).copyTo(roi);
 		/*mask = Mat::ones(roi.size(), CV_8UC1);
 		for (int y = 0; y < superpixels.at(x).size(); y++){
-			col = (superpixels.at(x).at(y) % src.cols) - sprecty[x].x;
-			row = (superpixels.at(x).at(y) / src.cols) - sprecty[x].y;
-			mask.at<uchar>(row, col) = 255;
+		col = (superpixels.at(x).at(y) % src.cols) - sprecty[x].x;
+		row = (superpixels.at(x).at(y) / src.cols) - sprecty[x].y;
+		mask.at<uchar>(row, col) = 255;
 		}*/
 
 		roi.convertTo(roi, CV_32FC1);
@@ -302,12 +302,67 @@ void firstseam(vector <vector<int>> &superpixels, Mat &energyx, Mat &energyy, ve
 		}
 
 
-		
-		for(int j = 0; j < sprecty.at(x).width; j++  ){
-			
+		int j;
+		for (j = 0; j < sprecty.at(x).width; j++){
+			if (dynamic_map_y_value[(sprecty.at(x).height - 1)*sprecty.at(x).width + dynamic_seam_y.at(sprecty.at(x).height - 1)] < dynamic_map_y_value[(sprecty.at(x).height - 1)*sprecty.at(x).width + j]) {
+				dynamic_seam_y.at(sprecty.at(x).height - 1) = j;	
+			}
 		}
 
+		for (int i = sprecty.at(x).height - 2; i >= 0; i--){
+			j = dynamic_seam_y.at(i + 1);
+			if (j == 0){
+				if (dynamic_map_y_value[i*sprecty.at(x).width + j] <= dynamic_map_y_value[i*sprecty.at(x).width + j + 1]) {					
+					dynamic_seam_y.at(i) = j + 1;					
+				}
+				else {
+					dynamic_seam_y.at(i) = j;					
+				}
+			}
+			else if (j == sprecty.at(x).width - 1){
+				if (dynamic_map_y_value[i*sprecty.at(x).width + j] <= dynamic_map_y_value[i*sprecty.at(x).width + j - 1]) {
+					dynamic_seam_y.at(i) = j - 1;					
+				}
+				else {
+					dynamic_seam_y.at(i) = j;
+				}
+			}
+			else {
+				if (dynamic_map_y_value[i*sprecty.at(x).width + j] < dynamic_map_y_value[i*sprecty.at(x).width + j + 1]) {
+					if (dynamic_map_y_value[i*sprecty.at(x).width + j - 1] > dynamic_map_y_value[i*sprecty.at(x).width + j + 1]) {
+						//if (ptrmask[i*roirect.at(x).width + j] == 255)
+						dynamic_seam_y.at(i) = j - 1;
+						//else continue;
+					}
+					else {
+						//if (ptrmask[i*roirect.at(x).width + j] == 255)
+						dynamic_seam_y.at(i) = j + 1;
+						//else continue;
+					}
+				}
+				else {
+					if (dynamic_map_y_value[i*sprecty.at(x).width + j - 1] > dynamic_map_y_value[i*sprecty.at(x).width + j]) {
+						//if (ptrmask[i*roirect.at(x).width + j] == 255)
+						dynamic_seam_y.at(i) = j - 1;
+						//else continue;
+					}
+					else {
+						//if (ptrmask[i*roirect.at(x).width + j] == 255)
+						dynamic_seam_y.at(i) = j;
+						//else continue;
+					}
+				}
+			}
+		}
+
+		//cout << "x :" << x << endl;
+		dynamic_seam_sp.at(x) = (dynamic_seam_y);
+		dynamic_seam_y.clear();
+		dynamic_map_y_value.clear();
 	}
+
+
+
 
 
 
