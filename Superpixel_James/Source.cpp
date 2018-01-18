@@ -362,7 +362,92 @@ void firstseam(vector <vector<int>> &superpixels, Mat &energyx, Mat &energyy, ve
 	}
 
 
+	//********************************************************************************
 
+
+	//*********x**********************************************************************
+	int x_block;
+	x_block = src.rows / SP;
+
+	first_block = (src.rows%SP) / 2;
+	final_block = (src.rows%SP) / 2;
+	
+	if ((src.rows%SP) % 2 != 0) 
+		first_block++;
+
+	sprectx.push_back(Rect(0, 0, src.cols, first_block + SP));
+	for (int i = 1; i < x_block - 1; i++){
+		sprectx.push_back(Rect(0, i*SP + first_block, src.cols, SP));
+	}
+	if (final_block != 0) sprectx.push_back(Rect(0, src.rows - (final_block + SP), src.cols,final_block+ SP));
+	else sprectx.push_back(Rect(0, src.rows - SP, src.cols, SP));
+
+
+	for (int x = 0; x < sprectx.size(); x++){
+		double center = gaussian(0, sprectx.at(x).height);
+		weightmap_x.resize(sprectx.at(x).height);
+
+		for (int i = -sprectx.at(x).height / 2; i < sprectx.at(x).height / 2; i++){
+			weightmap_x.at(sprectx.at(x).height / 2 + i) = gaussian(i, sprectx.at(x).height) / center;
+		}
+		energyx(sprectx[x]).copyTo(roi);
+		roi.convertTo(roi, CV_32F);
+		ptr_roi = roi.ptr<float>();
+		
+		dynamic_map_x_value.resize(sprectx.at(x).height*sprectx.at(x).width);
+		dynamic_seam_x.resize(sprectx.at(x).width);
+
+		for (int i = 0; i < sprectx.at(x).height; i++) {
+			for (int j = 0; j < sprectx.at(x).width; j++) {
+				ptr_roi[i*sprectx.at(x).width + j] = ptr_roi[i*sprectx.at(x).width + j];// *weightmap_x[i];
+			}
+		}
+
+		for (int i = 0; i < sprectx.at(x).width; i++) {
+			for (int j = 0; j < sprectx.at(x).height; j++) {
+
+				//First col value from weight roi
+				if (i == 0) {
+
+					dynamic_map_x_value[j*sprectx.at(x).width] = ptr_roi[j*sprectx.at(x).width];
+					//cout << "Dynamic_map_x_value[j*roirect.at(x).width]" << Dynamic_map_x_value[j*roirect.at(x).width] << endl;
+
+				}
+				//Following cols find the largest from above connected to itself
+				else {
+					if (j == 0) {	//top boundary
+						if (dynamic_map_x_value[j*sprectx.at(x).width + i - 1] > dynamic_map_x_value[(j + 1)*sprectx.at(x).width + i - 1])
+							dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[j*sprectx.at(x).width + i - 1];
+						else
+							dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[(j + 1)*sprectx.at(x).width + i - 1];
+					}
+					else if (j == sprectx.at(x).height - 1) { //down  boundary
+						if (dynamic_map_x_value[j*sprectx.at(x).width + i - 1] > dynamic_map_x_value[(j - 1)*sprectx.at(x).width + i - 1])
+							dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[j*sprectx.at(x).width + i - 1];
+						else
+							dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[(j - 1)*sprectx.at(x).width + i - 1];
+					}
+					else {	// middle 
+						if (dynamic_map_x_value[j*sprectx.at(x).width + i - 1] < dynamic_map_x_value[(j + 1)*sprectx.at(x).width + i - 1])
+							if (dynamic_map_x_value[(j + 1)*sprectx.at(x).width + i - 1] < dynamic_map_x_value[(j - 1)*sprectx.at(x).width + i - 1])
+								dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[(j - 1)*sprectx.at(x).width + i - 1];
+							else
+								dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[(j + 1)*sprectx.at(x).width + i - 1];
+						else
+							if (dynamic_map_x_value[(j - 1)*sprectx.at(x).width + i - 1] > dynamic_map_x_value[j*sprectx.at(x).width + i - 1])
+								dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[(j - 1)*sprectx.at(x).width + i - 1];
+							else
+								dynamic_map_x_value[j*sprectx.at(x).width + i] = ptr_roi[j*sprectx.at(x).width + i] + dynamic_map_x_value[j*sprectx.at(x).width + i - 1];
+					}
+				}
+			}
+		}
+
+		
+
+	}
+	//********************************************************************************
+	
 
 
 
