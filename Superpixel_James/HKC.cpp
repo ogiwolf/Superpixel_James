@@ -3369,6 +3369,7 @@ void firstseam(vector <vector<int>> &superpixels, Mat &energyx, Mat &energyy, ve
 
 		}
 	}
+
 	for (int i = 0; i < rst.size(); i++) {
 		avgcolor[i].cnt = rst.at(i).size();
 		if (avgcolor[i].cnt == 0) {

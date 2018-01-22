@@ -1,25 +1,38 @@
-﻿已經開始建置於 2018/1/18 下午 05:01:34。
-     1>節點 2 (Build 目標) 上的專案 "C:\Users\User\Documents\GitHub\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj"。
+﻿已經開始建置於 2018/1/22 下午 05:00:05。
+     1>節點 2 (Build 目標) 上的專案 "C:\Users\James\Documents\GitHub\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj"。
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\opencv\build\include /IC:\opencv\build\include\opencv2 /IC:\opencv\build\include\opencv /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Source.cpp
          Source.cpp
      1>C:\opencv\build\include\opencv2/core/mat.hpp(1965): warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
      1>C:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
      1>C:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-     1>Source.cpp(103): warning C4244: '=' : 將 'float' 轉換為 'uchar'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(104): warning C4244: '=' : 將 'float' 轉換為 'uchar'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(105): warning C4244: '=' : 將 'float' 轉換為 'uchar'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(159): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(160): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(242): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(391): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-     1>Source.cpp(209): warning C4101: 'col' : 未參考的區域變數
-     1>Source.cpp(209): warning C4101: 'row' : 未參考的區域變數
+     1>Source.cpp(106): warning C4244: '=' : 將 'float' 轉換為 'uchar'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(107): warning C4244: '=' : 將 'float' 轉換為 'uchar'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(108): warning C4244: '=' : 將 'float' 轉換為 'uchar'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(162): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(163): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(251): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(400): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(570): warning C4267: '=' : 將 'size_t' 轉換為 'int'，資料可能遺失
+     1>Source.cpp(581): warning C4267: '=' : 將 'size_t' 轉換為 'int'，資料可能遺失
+     1>Source.cpp(608): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(618): warning C4244: '=' : 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(626): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(217): warning C4101: 'col' : 未參考的區域變數
+     1>Source.cpp(217): warning C4101: 'row' : 未參考的區域變數
+     1>Source.cpp(680): warning C4101: 'd' : 未參考的區域變數
+     1>Source.cpp(802): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(977): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(1181): warning C4267: '=' : 將 'size_t' 轉換為 'int'，資料可能遺失
+     1>Source.cpp(1192): warning C4267: '=' : 將 'size_t' 轉換為 'int'，資料可能遺失
+     1>Source.cpp(1218): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(1228): warning C4244: '=' : 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>Source.cpp(1236): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\opencv\build\x64\vc12\lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.lib" /MACHINE:X64 x64\Debug\Source.obj
-         Superpixel_James.vcxproj -> C:\Users\User\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.exe
-     1>專案 "C:\Users\User\Documents\GitHub\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj" (Build 目標) 建置完成。
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\opencv\build\x64\vc12\lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.lib" /MACHINE:X64 x64\Debug\Source.obj
+         Superpixel_James.vcxproj -> C:\Users\James\Documents\GitHub\Superpixel_James\x64\Debug\Superpixel_James.exe
+     1>專案 "C:\Users\James\Documents\GitHub\Superpixel_James\Superpixel_James\Superpixel_James.vcxproj" (Build 目標) 建置完成。
 
 建置成功。
 
-經過時間 00:00:01.02
+經過時間 00:00:01.33
